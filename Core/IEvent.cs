@@ -2,7 +2,7 @@
 
 namespace Camoran.CQRS.Core
 {
-    public interface IEvent
+    public interface IEvent : IMessage
     {
         int Version { get; set; }
     }
