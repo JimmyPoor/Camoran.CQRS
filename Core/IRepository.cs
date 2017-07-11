@@ -6,11 +6,12 @@ namespace Camoran.CQRS.Core
 {
    public interface IRepository<T> where T:IAggregateRoot
     {
-        T GetByUniqueId();
+        T GetById(Guid id);
 
         void Save(T t);
 
         IUnitOfWork UnitOfWork { get; }
 
+        IEventService EvntService { get; }
     }
 }

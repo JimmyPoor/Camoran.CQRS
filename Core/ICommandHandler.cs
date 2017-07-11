@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Camoran.CQRS.Core
 {
-    public interface ICommandHandler
+    public interface ICommandHandler<Command> where Command:ICommand
     {
-        void SendCommand<ICommand>(ICommand message);
+        ICommandService Service { get; }
+
+        void Send(Command message);
+        void HandleCommand(Command message);
     }
 }

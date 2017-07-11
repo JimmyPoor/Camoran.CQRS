@@ -10,6 +10,6 @@ namespace Camoran.CQRS.Core
 
         void SaveEvent(IEvent @event);
 
-        //IEnumerable<IEvent> GetEvents(Guid a);
+        IEnumerable<IEvent> GetEvents(Guid a);
     }
 }

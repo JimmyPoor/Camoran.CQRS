@@ -6,6 +6,6 @@ namespace Camoran.CQRS.Core
 {
     public interface ICommand : IMessage
     {
-
+        Guid CommmandId { get; }
     }
 }

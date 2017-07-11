@@ -8,9 +8,7 @@ namespace Camoran.CQRS.Core
 {
     public interface ICommandBus
     {
-       void  SendCommand<TCommand>(TCommand command) where TCommand:ICommand;
-       Task  SendCommandAsync<TCommand>(TCommand command);
-
-       ConcurrentDictionary<ICommand,ICommandHandler> Commands { get;}
-    }   
+        void Send<TCommand>(TCommand command) where TCommand : ICommand;
+        Task SendAsync<TCommand>(TCommand command);
+    }
 }
