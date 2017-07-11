@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{856735E0-05C9-4C92-B06B-B5F7D8E4330E}"
 EndProject
@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F5D52EC7-3594-4E58-A506-1BB5772ABF02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Bus", "Core.EventBus\Core.Bus.csproj", "{3A3F623E-42D2-4F72-9D67-FAB2A29A6F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Bus", "Core.EventBus\Core.Bus.csproj", "{3A3F623E-42D2-4F72-9D67-FAB2A29A6F9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure", "Core.Command\Core.Infrastructure.csproj", "{4B4853F2-31EB-4073-BF11-0A06D5F54709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Infrastructure", "Core.Command\Core.Infrastructure.csproj", "{4B4853F2-31EB-4073-BF11-0A06D5F54709}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

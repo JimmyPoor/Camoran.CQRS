@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
-namespace Core.Bus.Memory
+namespace Camoran.CQRS.Core.Bus
 {
     public class MemoryCommandBus : ICommandBus
     {
