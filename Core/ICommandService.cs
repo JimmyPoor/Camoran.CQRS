@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Camoran.CQRS.Core
 {
-    public interface ICommandService
+    public interface ICommandService<Command>
     {
-        void SaveCommnad(ICommand command);
-        Task SaveCommandAsync(ICommand command);
+        void SaveCommnad(Command command) ;
+        Task SaveCommandAsync(Command command);
     }
 }

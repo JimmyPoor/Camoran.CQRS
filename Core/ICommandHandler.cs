@@ -7,9 +7,9 @@ namespace Camoran.CQRS.Core
 {
     public interface ICommandHandler<Command> where Command:ICommand
     {
-        ICommandService Service { get; }
+        ICommandService<Command> Service { get; }
 
-        void Send(Command message);
-        void HandleCommand(Command message);
+        Task Send(Command message);
+        Task HandleCommand(Command message);
     }
 }

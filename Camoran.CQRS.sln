@@ -9,8 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{F825D578-406F-4F7F-8645-CB5DD2B0754E}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\CQRS.png = C:\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\CQRS.png
-		C:\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\MyCQRS.vsdx = C:\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\MyCQRS.vsdx
+		..\..\..\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\CQRS.png = ..\..\..\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\CQRS.png
+		..\..\..\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\MyCQRS.vsdx = ..\..\..\Users\JimmyPoor\Desktop\MyCQRS\MyCQRS\MyCQRS.vsdx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F5D52EC7-3594-4E58-A506-1BB5772ABF02}"
@@ -18,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Bus", "Core.EventBus\Core.Bus.csproj", "{3A3F623E-42D2-4F72-9D67-FAB2A29A6F9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Infrastructure", "Core.Command\Core.Infrastructure.csproj", "{4B4853F2-31EB-4073-BF11-0A06D5F54709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Test", "Core.Test\Core.Test.csproj", "{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{4B4853F2-31EB-4073-BF11-0A06D5F54709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4853F2-31EB-4073-BF11-0A06D5F54709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4853F2-31EB-4073-BF11-0A06D5F54709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +51,6 @@ Global
 		{26063E8D-D18E-4D45-9973-5F3535675A14} = {856735E0-05C9-4C92-B06B-B5F7D8E4330E}
 		{3A3F623E-42D2-4F72-9D67-FAB2A29A6F9A} = {856735E0-05C9-4C92-B06B-B5F7D8E4330E}
 		{4B4853F2-31EB-4073-BF11-0A06D5F54709} = {856735E0-05C9-4C92-B06B-B5F7D8E4330E}
+		{4B6C0DB4-5A2C-4EB8-A877-A80F37FFB659} = {F5D52EC7-3594-4E58-A506-1BB5772ABF02}
 	EndGlobalSection
 EndGlobal

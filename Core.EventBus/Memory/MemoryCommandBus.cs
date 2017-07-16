@@ -19,9 +19,14 @@ namespace Camoran.CQRS.Core.Bus
             }
         }
 
-        public virtual Task SendAsync<TCommand>(TCommand command)
+        public virtual Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand
         {
-            throw new NotImplementedException();
+            if (Commands.ContainsKey(command.Topic))
+            {
+                return Commands[command.Topic].Send(command);
+            }
+
+            return Task.FromResult(0);
         }
 
     }
