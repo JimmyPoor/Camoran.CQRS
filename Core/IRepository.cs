@@ -10,8 +10,9 @@ namespace Camoran.CQRS.Core
 
         void Save(T t);
 
-        IUnitOfWork UnitOfWork { get; }
+        IUnitOfWork UOW { get; }
 
-        IEventService EvntService { get; }
+        IEventService EventService { get; }
+
     }
 }

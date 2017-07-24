@@ -8,8 +8,11 @@ namespace Camoran.CQRS.Core
     {
         IEventBus EventBus { get;  }
 
+        ISnapshot<IEvent> SnapShot { get; }
+
         void SaveEvent(IEvent @event);
 
         IEnumerable<IEvent> GetEvents(Guid a);
+
     }
 }

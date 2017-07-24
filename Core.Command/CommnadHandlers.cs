@@ -24,7 +24,7 @@ namespace Camoran.CQRS.Core.Infrastructure
         {
             await HandleCommand(request);
 
-            Service.SaveCommnad(request);
+            await Service.SaveCommandAsync(request);
         }
 
         public abstract Task HandleCommand(Command message);

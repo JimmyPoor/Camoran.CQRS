@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using MediatR.Pipeline;
-using Scrutor;
-using Xunit;
+﻿using Camoran.CQRS.Core;
+using Camoran.CQRS.Core.Infrastructure;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Camoran.CQRS.Core.Infrastructure;
-using Camoran.CQRS.Core;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Core.Test.Infranstructure
 {
@@ -86,7 +84,6 @@ namespace Core.Test.Infranstructure
         }
     }
 
-
     public static class ServiceProviderExtension
     {
         public static IEnumerable<object> GetRequiredServices(this IServiceProvider provider, Type serviceType)
@@ -94,7 +91,6 @@ namespace Core.Test.Infranstructure
             return (IEnumerable<object>)provider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(serviceType));
         }
     }
-
 
     public class MyMediatorCommand : MediatorCommand
     {
@@ -128,7 +124,5 @@ namespace Core.Test.Infranstructure
             command.SetBody("Save Complete");
         }
     }
-
-
 
 }

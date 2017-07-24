@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Camoran.CQRS.Core
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork:IDisposable
     {
-        void SaveChanges();
+        void Start();
+
+        void Commit();
+
+        void RollBack();
     }
 }
