@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Guards.Extensions;
 
 namespace Camoran.CQRS.Core.Infrastructure
 {
     public class InMemorySnapshot<T> : ISnapshot<T>
     {
-        private IDictionary<int, T> _memoto;
+        protected IDictionary<int, T> _memoto;
 
-        public IEnumerable<T> GetByVersionId(int version)
+        public virtual IEnumerable<T> GetByVersionId(int version)
         {
             if (version < 0) version = 0;
-            return null;
+
+            foreach(var key in _memoto.Keys)
+            {
+                yield return _memoto[key];
+            }
         }
 
-        public void Save(int version,T t)
+        public virtual void Save(int version,T t)
         {
+            t.EnsureNotNull();
+
             _memoto.Add(version, t);
         }
     }
