@@ -8,5 +8,5 @@ namespace Camoran.CQRS.Core.Infrastructure
         where Command : MediatorCommand
     {
          IMediator Mediator { get; }
-    }
+    } 
 }

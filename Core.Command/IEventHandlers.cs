@@ -5,6 +5,6 @@ using System.Text;
 namespace Camoran.CQRS.Core.Infrastructure
 {
     public class IEventHandlers
-    {
+    { 
     }
 }
