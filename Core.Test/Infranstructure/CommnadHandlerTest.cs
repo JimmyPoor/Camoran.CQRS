@@ -99,16 +99,31 @@ namespace Core.Test.Infranstructure
         }
     }
 
-    public class MyMediatorCommandHandler : MediatorCommandHandler<MyMediatorCommand>
+    public class MyMediatorCommandHandler : IMediatorCommandHandler<MyMediatorCommand>
     {
-        public MyMediatorCommandHandler(IMediator mediator, ICommandService<MyMediatorCommand> service) : base(mediator, service)
+        public MyMediatorCommandHandler(IMediator mediator, ICommandService<MyMediatorCommand> service) 
         {
+            Mediator = mediator;
         }
 
-        public override Task HandleCommand(MyMediatorCommand message)
+        public IMediator Mediator { get; protected set; }
+
+        public ICommandService<MyMediatorCommand> Service { get; protected set; }
+
+        public void Handle(MyMediatorCommand message)
+        {
+            HandleCommand(message);
+        }
+
+        public Task HandleCommand(MyMediatorCommand message)
         {
             message.SetBody("Handle Command");
             return Task.FromResult(message);
+        }
+
+        public Task Send(MyMediatorCommand message)
+        {
+            return Mediator.Send(message);
         }
     }
 

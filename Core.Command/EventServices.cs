@@ -26,7 +26,7 @@ namespace Camoran.CQRS.Core.Infrastructure
         public IEnumerable<IEvent> GetEvents(Guid aggId)
         {
             var @event = Events.Find(e => e.AggregateId == aggId);
-            return @event != null ? GetEvents(aggId, @event.Version): Events.FindAll(e => e.AggregateId == aggId);
+            return @event != null ? SnapShot.GetByVersionId(@event.Version) : Events.FindAll(e => e.AggregateId == aggId);
         }
 
         public void SaveEvent(IEvent @event)
@@ -37,11 +37,9 @@ namespace Camoran.CQRS.Core.Infrastructure
             SnapShot.Save(@event.Version, @event);
         }
 
-        public IEnumerable<IEvent> GetEvents(Guid aggId, int version)
+        public void Publish(IEnumerable<IEvent> @events)
         {
-            var events= SnapShot.GetByVersionId(version);
-
-            return Events.FindAll(e => e.AggregateId == aggId);
+            EventBus.PublishAll(@events);
         }
     }
 }

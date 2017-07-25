@@ -6,7 +6,7 @@ namespace Camoran.CQRS.Core
 {
     public interface IUnitOfWork:IDisposable
     {
-        void Start();
+        //void Start();
 
         void Commit();
 

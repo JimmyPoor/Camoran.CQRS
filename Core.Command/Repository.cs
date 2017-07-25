@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Guards.Extensions;
 
 namespace Camoran.CQRS.Core.Infrastructure
 {
@@ -15,7 +16,11 @@ namespace Camoran.CQRS.Core.Infrastructure
 
         public Repository(IUnitOfWork unitOfWork,IEventService eventService)
         {
+            unitOfWork.EnsureNotNull();
+            eventService.EnsureNotNull();
+
             UOW = unitOfWork;
+            EventService = eventService;
         }
 
         public virtual T GetById(Guid id)
@@ -31,24 +36,34 @@ namespace Camoran.CQRS.Core.Infrastructure
         public virtual void Save(T t)
         {
             var agg = GetById(t.ID);
-            var aggVersion = agg.Version;
+            agg.EnsureNotNull();
 
-            if (agg == null) throw new NullReferenceException();
+            var aggVersion = agg.Version;
 
             Monitor.Enter(_lockObj);
 
-            //保存未执行的事件
-            foreach (var @event in agg.UnCommitEvents)
+            using (UOW)
             {
-                aggVersion++;
-                @event.Version = aggVersion;
-                EventService.SaveEvent(@event);
+                try
+                {
+                    //保存未执行的事件
+                    foreach (var @event in agg.UnCommitEvents)
+                    {
+                        aggVersion++;
+                        @event.Version = aggVersion;
+                        EventService.SaveEvent(@event);
+                    }
+
+                    UOW.Commit();
+                }
+                catch
+                {
+                    UOW.RollBack();
+                }
             }
 
-            //UOW.Commit();
-
             //发布消息,通知聚合根执行事件，并更改内存中的聚合根为最新状态
-            EventService.EventBus.PublishAll(agg.UnCommitEvents);
+            EventService.Publish(agg.UnCommitEvents);
 
             Monitor.Exit(_lockObj);
         }

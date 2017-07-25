@@ -13,6 +13,11 @@ namespace Camoran.CQRS.Core.Bus
             throw new NotImplementedException();
         }
 
+        public void PublishAll<TEvent>(IEnumerable<TEvent> events) where TEvent : IEvent
+        {
+            throw new NotImplementedException();
+        }
+
         public void Subscribe<TEvent>(TEvent @event, IEventHandler<TEvent> handler) where TEvent : IEvent
         {
             throw new NotImplementedException();

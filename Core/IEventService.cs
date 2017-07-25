@@ -14,7 +14,6 @@ namespace Camoran.CQRS.Core
 
         IEnumerable<IEvent> GetEvents(Guid aggId);
 
-        IEnumerable<IEvent> GetEvents(Guid aggId, int version);
-
+        void Publish(IEnumerable<IEvent> @events);
     }
 }
